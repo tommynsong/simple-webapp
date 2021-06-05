@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+    proxy:
+        image: nginx
+        depends_on:
+            - web
+        volumes:
+            - ./proxy/nginx/index.html:/usr/share/nginx/html/index.html
+            - ./proxy/nginx/conf.d:/etc/nginx/conf.d
+            - ./proxy/nginx/ssl:/etc/nginx/ssl
+            - ./proxy/nginx/.htpasswd:/etc/nginx/.htpasswd
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+
+    web:
+        image: nginx
+        volumes:
+            - ./web/nginx/index.html:/usr/share/nginx/html/index.html
+            - ./web/nginx/conf.d:/etc/nginx/conf.d
+            - ./web/nginx/ssl:/etc/nginx/ssl
+        restart: always
