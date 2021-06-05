@@ -17,4 +17,6 @@ Any requests that match `/secreturi/` will be proxy to the web container.
 ```
 git clone https://github.com/tommynsong/simple-webapp
 cd simple-webapp
+docker build proxy
+docker build web
 docker compose up -d
