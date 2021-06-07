@@ -20,6 +20,7 @@ cd simple-webapp
 docker build proxy
 docker build web
 docker compose up -d
+```
 
 ## Usage
 Once deployed, you can access the web app at `http://localhost` this will then redirect to `https://localhost`.
